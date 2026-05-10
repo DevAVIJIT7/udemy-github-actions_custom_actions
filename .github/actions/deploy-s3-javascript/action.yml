@@ -12,5 +12,5 @@ inputs:
     description: 'The directory containing the files to deploy'
     required: true
 runs:
-  using: 'node20'
+  using: 'node16'
   main: 'main.js'
