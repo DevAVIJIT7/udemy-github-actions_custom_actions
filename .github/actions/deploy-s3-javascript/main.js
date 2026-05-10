@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const exec = require('@actions/exec');
 
 function run() {
-  core.info('Deploying to AWS S3...');
+  core.notice('Deploying to AWS S3...');
 
   const bucketName = core.getInput('bucket-name', { required: true });
   const bucketRegion = core.getInput('bucket-region', { required: true });
@@ -12,10 +12,10 @@ function run() {
   const s3Uri = `s3://${bucketName}`;
   exec.exec(`aws s3 sync ${sourceDir} ${s3Uri} --region ${bucketRegion}`)
     .then(() => {
-      core.info('Deployment successful!');
+      core.notice('Deployment successful!');
     })
     .catch((error) => {
-      core.setFailed(`Deployment failed: ${error.message}`);
+      core.error(`Deployment failed: ${error.message}`);
     });
 };
 
