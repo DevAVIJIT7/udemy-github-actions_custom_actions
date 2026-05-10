@@ -72,4 +72,3 @@ jobs:
           bucket-name: ${{ secrets.S3_BUCKET_NAME }}
           bucket-region: ${{ secrets.S3_BUCKET_REGION }}
           source-dir: ./dist
-        run: |
